@@ -3,39 +3,32 @@ import { createApp } from './vendor/vue.esm-browser.js';
 const app = createApp({
   data() {
     return {
-      firstArgument: 0,
-      secondArgument: 0,
-      result: 0,
+      firstArgument: null,
+      secondArgument: null,
       operator: '',
     };
   },
   computed: {
-    sum() {
-      return parseInt(this.firstArgument) + parseInt(this.secondArgument);
-    },
-    subtract() {
-      return parseInt(this.firstArgument) - parseInt(this.secondArgument);
-    },
-    multiply() {
-      return parseInt(this.firstArgument) * parseInt(this.secondArgument);
-    },
-    divide() {
-      let divisionResult = this.firstArgument / this.secondArgument;
-      divisionResult = Number.isInteger(divisionResult) == true ? divisionResult : divisionResult.toFixed(2);
-      return divisionResult;
+    result: function () {
+      if (this.operator === 'sum') {
+        return parseInt(this.firstArgument) + parseInt(this.secondArgument);
+      } else if (this.operator === 'divide') {
+        let fixedResult = parseInt(this.firstArgument) / parseInt(this.secondArgument);
+        if (fixedResult != parseInt(fixedResult)) {
+          fixedResult = fixedResult.toFixed(2);
+        }
+        return fixedResult;
+      } else if (this.operator === 'subtract') {
+        return parseInt(this.firstArgument) - parseInt(this.secondArgument);
+      } else if (this.operator === 'multiply') {
+        return parseInt(this.firstArgument) * parseInt(this.secondArgument);
+      }
+      return 0;
     },
   },
   methods: {
     onChange() {
-      if (this.operator === 'sum') {
-        this.result = this.sum;
-      } else if (this.operator === 'divide') {
-        this.result = this.divide;
-      } else if (this.operator === 'subtract') {
-        this.result = this.subtract;
-      } else if (this.operator === 'multiply') {
-        this.result = this.multiply;
-      }
+      this.result;
     },
   },
 }).mount('#app');
