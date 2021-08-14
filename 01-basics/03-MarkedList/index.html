@@ -14,10 +14,10 @@
     <div id="app" style="margin-top: 2rem">
       <div class="container">
         <div class="form-group">
-          <input type="search" v-model="searchString" @input="calculateIsMatch" />
+          <input type="search" v-model.text="searchString" />
         </div>
         <ul>
-          <li :class="{ marked: email.isMatch }" v-for="email in emails">{{ email.value }}</li>
+          <li :class="{ marked: email.isMatch }" v-for="email in matchingEmails">{{ email.value }}</li>
         </ul>
       </div>
     </div>

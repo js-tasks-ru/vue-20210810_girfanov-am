@@ -5,30 +5,28 @@ const app = createApp({
     return {
       firstArgument: null,
       secondArgument: null,
-      operator: '',
+      operator: null,
     };
   },
   computed: {
-    result: function () {
+    result() {
       if (this.operator === 'sum') {
-        return parseInt(this.firstArgument) + parseInt(this.secondArgument);
+        return this.firstArgument + this.secondArgument;
       } else if (this.operator === 'divide') {
-        let fixedResult = parseInt(this.firstArgument) / parseInt(this.secondArgument);
-        if (fixedResult != parseInt(fixedResult)) {
-          fixedResult = fixedResult.toFixed(2);
-        }
-        return fixedResult;
+        return this.fixedResult;
       } else if (this.operator === 'subtract') {
-        return parseInt(this.firstArgument) - parseInt(this.secondArgument);
+        return this.firstArgument - this.secondArgument;
       } else if (this.operator === 'multiply') {
-        return parseInt(this.firstArgument) * parseInt(this.secondArgument);
+        return this.firstArgument * this.secondArgument;
       }
       return 0;
     },
-  },
-  methods: {
-    onChange() {
-      this.result;
+    fixedResult() {
+      let divisionResult = this.firstArgument / this.secondArgument;
+      if (divisionResult != parseInt(divisionResult)) {
+        return divisionResult.toFixed(2);
+      }
+      return divisionResult;
     },
   },
 }).mount('#app');

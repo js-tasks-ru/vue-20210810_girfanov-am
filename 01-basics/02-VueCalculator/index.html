@@ -31,7 +31,7 @@
     <div id="app" class="container">
       <div class="row">
         <div class="col">
-          <input type="number" @input="onChange" v-model="firstArgument"/>
+          <input type="number" v-model.number="firstArgument"/>
         </div>
 
         <div class="col" style="display: flex; flex-direction: column; font-family: emoji">
@@ -42,7 +42,7 @@
         </div>
 
         <div class="col">
-          <input type="number" @input="onChange" v-model="secondArgument" />
+          <input type="number" v-model.number="secondArgument" />
         </div>
 
         <div class="col">=</div>
