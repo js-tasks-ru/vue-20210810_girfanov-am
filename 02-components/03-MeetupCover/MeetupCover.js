@@ -15,13 +15,13 @@ export default defineComponent({
     },
   },
   computed: {
-    getImage() {
+    meetupImage() {
       return this.image ? { '--bg-url': `url('${this.image}')` } : null;
     },
   },
 
   template: `
-    <div class="meetup-cover" :style="getImage">
+    <div class="meetup-cover" :style="meetupImage">
         <h1 class="meetup-cover__title">{{ title }}</h1>
     </div>`,
 });
