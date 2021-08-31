@@ -16,7 +16,7 @@ export default defineComponent({
     meetupId: {
       type: Number,
       required: true,
-      default: null,
+      default: undefined,
     },
   },
   data() {

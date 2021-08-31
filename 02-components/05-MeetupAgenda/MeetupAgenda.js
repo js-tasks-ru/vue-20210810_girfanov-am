@@ -9,8 +9,8 @@ export default defineComponent({
   props: {
     agenda: {
       type: Array,
-      reqired: true,
-      default: null,
+      required: true,
+      default: undefined,
     },
   },
   template: `
