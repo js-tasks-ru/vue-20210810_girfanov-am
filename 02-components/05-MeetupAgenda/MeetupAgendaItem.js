@@ -7,7 +7,7 @@ export default defineComponent({
     agendaItem: {
       type: Object,
       required: true,
-      default: null,
+      default: undefined,
     },
   },
   computed: {
